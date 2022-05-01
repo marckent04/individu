@@ -11,12 +11,13 @@ func QuestionResponse(index int) (string, error) {
 	return inputs.GetAnswer()
 }
 
-func DisplayCreateScreen()  {
+func DisplayCreateScreen() {
+
 	var values []string
 
 	loop := 0
 
-	for  loop <= 2 {
+	for loop <= 2 {
 		value, err := QuestionResponse(loop)
 
 		if err != nil {
@@ -31,19 +32,19 @@ func DisplayCreateScreen()  {
 	db, err := database.DbConnect("individu.sqlite")
 
 	if err != nil {
-			fmt.Println(err)
+		fmt.Println(err)
 	}
 
 	database.LaunchMigrations(db)
 
 	newUser := database.User{
-		Name: values[0],
+		Name:     values[0],
 		Birthday: values[1],
-		Tel: values[2],
+		Tel:      values[2],
 	}
 
 	tx := newUser.Create(db)
-	
+
 	if tx.Error != nil {
 		fmt.Println(tx.Error)
 		return

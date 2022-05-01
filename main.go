@@ -1,11 +1,22 @@
 package main
 
 import (
-	"individu/outputs"
+	"fmt"
+	"individu/choice"
 )
 
+func main() {
 
+	for {
+		response, error := choice.Mychoice()
 
-func main()  {
-	outputs.DisplayCreateScreen()
+		if error != nil {
+			fmt.Println(error)
+			continue
+		}
+		choice.Selectable(response)
+
+		break
+	}
+
 }
