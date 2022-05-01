@@ -1,12 +1,14 @@
 package choice
 
 import (
+	"fmt"
 	"individu/inputs"
 	"individu/outputs"
 	"individu/update"
 )
 
 func Mychoice() (int, error) {
+	fmt.Printf("========================\n        INDIVIDU\n ========================\n ")
 	outputs.DisplayActionChoice()
 	return inputs.GetChoiceAnswer()
 }

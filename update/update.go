@@ -14,6 +14,7 @@ func DisplayUpdateScreen() {
 	var user database.User
 
 	db.Find(&allUsers)
+
 	selected := ShowToSelect(allUsers)
 
 	db.First(&user)
